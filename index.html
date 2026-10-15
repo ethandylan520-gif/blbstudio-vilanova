@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLB Studio — Barbería en Vilanova i la Geltrú</title>
+<meta name="description" content="BLB Studio, barbería en Vilanova i la Geltrú. Cortes actuales, barba y cortes largos (foxy, mod cut, bob) para hombre y mujer. 5,0 en Booksy con 486 reseñas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0000fe;
+    --azul-osc: #0000c4;
+    --blanco: #ffffff;
+    --gris-claro: #f2f2f4;
+    --negro: #0a0a0a;
+    --gris: #6b6b72;
+    --linea: rgba(10,10,10,.14);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter Tight', sans-serif; background: var(--blanco); color: var(--negro); line-height: 1.6; overflow-x: hidden; }
+  h1, h2, h3 { font-weight: 900; letter-spacing: -1.5px; line-height: .95; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  header {
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    display: flex; align-items: stretch; justify-content: space-between;
+    background: var(--blanco); border-bottom: 2px solid var(--negro);
+  }
+  .marca { background: var(--azul); display: flex; align-items: center; padding: 0 22px; }
+  .marca img { height: 52px; width: auto; }
+  nav ul { list-style: none; display: flex; height: 100%; }
+  nav li { border-left: 2px solid var(--negro); }
+  nav a { display: flex; align-items: center; height: 100%; padding: 0 22px; font-size: .78rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; transition: background .2s, color .2s; }
+  nav a:hover { background: var(--negro); color: var(--blanco); }
+  nav .nav-cta { background: var(--azul); color: var(--blanco); white-space: nowrap; }
+  nav .nav-cta:hover { background: var(--azul-osc); }
+
+  .hero { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 100vh; padding-top: 54px; border-bottom: 2px solid var(--negro); }
+  .hero-txt { padding: 70px 6% 50px; display: flex; flex-direction: column; justify-content: space-between; }
+  .hero-txt small { font-size: .8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--azul); }
+  .hero h1 { font-size: clamp(3.6rem, 9vw, 8.4rem); margin: 24px 0; }
+  .hero h1 span { color: var(--azul); }
+  .hero p { font-size: 1.15rem; max-width: 470px; margin-bottom: 30px; font-weight: 500; }
+  .botones { display: flex; gap: 0; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--azul); color: var(--blanco); padding: 18px 28px; font-weight: 800; font-size: .82rem; letter-spacing: 1px; text-transform: uppercase; border: 2px solid var(--negro); transition: background .2s; }
+  .btn:hover { background: var(--negro); }
+  .btn-linea { background: var(--blanco); color: var(--negro); border-left: 0; }
+  .btn-linea:hover { background: var(--negro); color: var(--blanco); }
+  .datos { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--negro); margin-top: 40px; }
+  .datos div { padding: 18px 0 0; }
+  .datos b { display: block; font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; line-height: 1; }
+  .datos span { font-size: .74rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gris); }
+  .hero-foto { position: relative; border-left: 2px solid var(--negro); }
+  .hero-foto img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-foto .etiqueta { position: absolute; left: 0; bottom: 0; background: var(--azul); color: var(--blanco); padding: 14px 20px; font-weight: 800; font-size: .9rem; letter-spacing: 1px; text-transform: uppercase; }
+
+  .cinta { background: var(--azul); color: var(--blanco); overflow: hidden; white-space: nowrap; border-bottom: 2px solid var(--negro); padding: 16px 0; }
+  .cinta div { display: inline-flex; gap: 46px; animation: correr 26s linear infinite; font-weight: 900; font-size: 1.6rem; letter-spacing: -.5px; text-transform: uppercase; }
+  .cinta span::after { content: "©"; margin-left: 46px; }
+  @keyframes correr { to { transform: translateX(-50%); } }
+
+  section { padding: 100px 6%; max-width: 1240px; margin: 0 auto; }
+  .num { font-size: .8rem; font-weight: 800; letter-spacing: 2px; color: var(--azul); text-transform: uppercase; display: block; margin-bottom: 14px; }
+  .titulo { font-size: clamp(2.8rem, 6.5vw, 5.4rem); margin-bottom: 40px; }
+
+  .manifiesto { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: end; }
+  .manifiesto p { font-size: 1.35rem; font-weight: 500; line-height: 1.45; margin-bottom: 18px; }
+  .manifiesto p b { color: var(--azul); }
+  .manifiesto img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 2px solid var(--negro); }
+  .equipo { display: flex; gap: 0; margin-top: 26px; }
+  .equipo span { border: 2px solid var(--negro); padding: 10px 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: .85rem; }
+  .equipo span + span { border-left: 0; }
+
+  .gris { background: var(--gris-claro); border-top: 2px solid var(--negro); border-bottom: 2px solid var(--negro); }
+  .carta { border: 2px solid var(--negro); background: var(--blanco); }
+  .fila { display: grid; grid-template-columns: 1fr auto; gap: 20px; padding: 24px 28px; border-bottom: 2px solid var(--negro); align-items: center; transition: background .2s, color .2s; }
+  .fila:last-child { border-bottom: 0; }
+  .fila:hover { background: var(--azul); color: var(--blanco); }
+  .fila:hover small { color: #c9ccff; }
+  .fila h3 { font-size: clamp(1.4rem, 2.6vw, 2rem); letter-spacing: -.8px; }
+  .fila small { display: block; color: var(--gris); font-size: .92rem; margin-top: 6px; font-weight: 500; }
+  .fila b { font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 900; letter-spacing: -1px; }
+
+  .galeria { display: grid; grid-template-columns: repeat(6, 1fr); border: 2px solid var(--negro); }
+  .galeria img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-right: 2px solid var(--negro); border-bottom: 2px solid var(--negro); filter: grayscale(.15); transition: filter .3s; }
+  .galeria img:nth-child(6n) { border-right: 0; }
+  .galeria img:nth-last-child(-n+6) { border-bottom: 0; }
+  .galeria img:hover { filter: grayscale(0); }
+
+  .largos { display: grid; grid-template-columns: 1fr 1.4fr; gap: 50px; align-items: center; }
+  .largos .fotos { display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--negro); }
+  .largos .fotos img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .largos .fotos img:nth-child(odd) { border-right: 2px solid var(--negro); }
+  .largos .fotos img:nth-child(-n+2) { border-bottom: 2px solid var(--negro); }
+  .largos h2 { font-size: clamp(2.6rem, 5.5vw, 4.6rem); margin-bottom: 20px; }
+  .largos p { font-size: 1.15rem; font-weight: 500; margin-bottom: 24px; max-width: 520px; }
+  .etiquetas { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .etiquetas span { background: var(--azul); color: var(--blanco); padding: 6px 14px; font-weight: 800; font-size: .82rem; letter-spacing: 1px; text-transform: uppercase; }
+
+  .opiniones { display: grid; grid-template-columns: repeat(3, 1fr); border: 2px solid var(--negro); background: var(--blanco); }
+  .op { padding: 30px 26px; border-right: 2px solid var(--negro); }
+  .op:last-child { border-right: 0; }
+  .op .est { color: var(--azul); font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 12px; }
+  .op p { font-size: 1.15rem; font-weight: 600; line-height: 1.4; margin-bottom: 16px; }
+  .op cite { font-style: normal; color: var(--gris); font-size: .82rem; }
+
+  .info { display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--negro); }
+  .info > div { padding: 34px 32px; }
+  .info > div:first-child { border-right: 2px solid var(--negro); }
+  .horario { width: 100%; border-collapse: collapse; }
+  .horario td { padding: 12px 0; border-bottom: 1px solid var(--linea); font-weight: 600; }
+  .horario td:last-child { text-align: right; }
+  .horario tr.cerrado td:last-child { color: var(--gris); }
+  .dir { margin-top: 20px; font-weight: 500; }
+  .dir b { font-weight: 800; }
+  .urgente { margin-top: 18px; background: var(--azul); color: var(--blanco); padding: 14px 18px; font-weight: 700; }
+  .mapa { padding: 0 !important; }
+  .mapa img { width: 100%; height: 100%; object-fit: cover; }
+
+  .cta { background: var(--azul); color: var(--blanco); text-align: center; padding: 110px 6%; border-top: 2px solid var(--negro); }
+  .cta h2 { font-size: clamp(3.4rem, 9vw, 8rem); margin-bottom: 20px; }
+  .cta p { font-size: 1.15rem; font-weight: 500; max-width: 480px; margin: 0 auto 30px; }
+  .cta .botones { justify-content: center; }
+  .cta .btn { background: var(--blanco); color: var(--negro); }
+  .cta .btn:hover { background: var(--negro); color: var(--blanco); }
+  .cta .btn-linea { background: transparent; color: var(--blanco); border-color: var(--blanco); border-left: 2px solid var(--blanco); }
+
+  footer { background: var(--negro); color: #9a9aa2; text-align: center; padding: 24px 6%; font-size: .82rem; }
+
+  .wa-flotante { position: fixed; right: 22px; bottom: 22px; z-index: 120; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; box-shadow: 0 10px 25px rgba(0,0,0,.25); }
+  .wa-flotante svg { width: 30px; height: 30px; fill: #fff; }
+
+  @media (max-width: 920px) {
+    nav ul li:not(:last-child) { display: none; }
+    .marca img { height: 44px; }
+    .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 50px; }
+    .hero-foto { border-left: 0; border-top: 2px solid var(--negro); height: 380px; }
+    .manifiesto, .largos { grid-template-columns: 1fr; }
+    .galeria { grid-template-columns: repeat(3, 1fr); }
+    .galeria img:nth-child(6n) { border-right: 2px solid var(--negro); }
+    .galeria img:nth-child(3n) { border-right: 0; }
+    .galeria img:nth-last-child(-n+6) { border-bottom: 2px solid var(--negro); }
+    .galeria img:nth-last-child(-n+3) { border-bottom: 0; }
+    .opiniones, .info { grid-template-columns: 1fr; }
+    .op { border-right: 0; border-bottom: 2px solid var(--negro); }
+    .op:last-child { border-bottom: 0; }
+    .info > div:first-child { border-right: 0; border-bottom: 2px solid var(--negro); }
+    .mapa img { aspect-ratio: 4/3; }
+    section { padding: 76px 6%; }
+    .fila { padding: 20px 18px; }
+    .botones { flex-direction: column; }
+    .botones .btn { justify-content: center; }
+    .btn-linea { border-left: 2px solid var(--negro); border-top: 0; }
+    .cta .btn-linea { border-top: 0; }
+    .horario td { font-size: .92rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="marca" href="#inicio"><img src="img/logo.jpg" alt="BLB Studio"></a>
+  <nav>
+    <ul>
+      <li><a href="#estudio">Estudio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a class="nav-cta" href="https://wa.me/34605229549" target="_blank" rel="noopener">Pedir cita</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero" id="inicio">
+  <div class="hero-txt">
+    <div>
+      <small>Barbería · Vilanova i la Geltrú</small>
+      <h1>¿Quieres<br>un <span>cambio</span>?</h1>
+      <p>Esta es tu barbería. Nueva, diferente e innovadora: cortes actuales, barba y cortes largos para él y para ella.</p>
+      <div class="botones">
+        <a class="btn" href="https://wa.me/34605229549" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+        <a class="btn btn-linea" href="#servicios">Ver precios</a>
+      </div>
+    </div>
+    <div class="datos">
+      <div><b>5,0★</b><span>En Booksy</span></div>
+      <div><b>486</b><span>Reseñas</span></div>
+      <div><b>17 €</b><span>Corte de pelo</span></div>
+    </div>
+  </div>
+  <div class="hero-foto">
+    <img src="img/local.jpg" alt="Interior de BLB Studio">
+    <span class="etiqueta">Carrer del Correu, 1</span>
+  </div>
+</div>
+
+<div class="cinta" aria-hidden="true"><div>
+  <span>Fade</span><span>Mullet</span><span>Mod cut</span><span>Foxy</span><span>Barba</span><span>Bob</span>
+  <span>Fade</span><span>Mullet</span><span>Mod cut</span><span>Foxy</span><span>Barba</span><span>Bob</span>
+</div></div>
+
+<section id="estudio">
+  <span class="num">01 — El estudio</span>
+  <div class="manifiesto">
+    <div>
+      <h2 class="titulo" style="margin-bottom:28px;">Creado por<br>y para <span style="color:var(--azul)">vosotros</span></h2>
+      <p>En BLB Studio cada corte es <b>adaptado y personalizado</b>: escuchamos lo que quieres y lo llevamos a tu cara y a tu tipo de pelo.</p>
+      <p>Buen rollo, buena charla y cortes súper actuales. Hay gente que viene hasta desde Vilafranca.</p>
+      <div class="equipo"><span>Brian</span><span>Toni</span><span>Miguel</span></div>
+    </div>
+    <img src="img/local-2.jpg" alt="Puestos de trabajo de BLB Studio">
+  </div>
+</section>
+
+<div class="gris">
+<section id="servicios">
+  <span class="num">02 — Servicios</span>
+  <h2 class="titulo">Precios claros</h2>
+  <div class="carta">
+    <div class="fila"><div><h3>Corte de pelo</h3><small>Adaptado y personalizado · 30 min</small></div><b>17 €</b></div>
+    <div class="fila"><div><h3>Corte + barba</h3><small>30 min</small></div><b>23 €</b></div>
+    <div class="fila"><div><h3>Corte de pelo largo</h3><small>Foxy, mod cut, bob… para hombre y mujer · 45 min</small></div><b>30 €</b></div>
+    <div class="fila"><div><h3>Barba</h3><small>15 min</small></div><b>10 €</b></div>
+    <div class="fila"><div><h3>Corte urgente</h3><small>Fuera de horario · 30 min</small></div><b>25 €</b></div>
+  </div>
+</section>
+</div>
+
+<section id="trabajos">
+  <span class="num">03 — Trabajos</span>
+  <h2 class="titulo">Lo último</h2>
+  <div class="galeria">
+    <img src="img/corte_1.jpg" alt="Degradado con flequillo">
+    <img src="img/corte_2.jpg" alt="Corte con textura">
+    <img src="img/corte_3.jpg" alt="Corte rizado">
+    <img src="img/corte_4.jpg" alt="Mullet">
+    <img src="img/corte_6.jpg" alt="Corte actual">
+    <img src="img/corte_7.jpg" alt="Raya marcada">
+    <img src="img/corte_8.jpg" alt="Color rojo">
+    <img src="img/corte_9.jpg" alt="Corte con degradado">
+    <img src="img/corte_10.jpg" alt="Corte rizado con degradado">
+    <img src="img/corte_11.jpg" alt="Corte con textura">
+    <img src="img/corte_12.jpg" alt="Corte joven">
+    <img src="img/corte_5.jpg" alt="Corte en el estudio">
+  </div>
+</section>
+
+<section id="largos" style="padding-top:0;">
+  <div class="largos">
+    <div class="fotos">
+      <img src="img/largo_2.jpg" alt="Mullet con color naranja">
+      <img src="img/largo_3.jpg" alt="Corte shag largo">
+      <img src="img/largo_4.jpg" alt="Corte rizado">
+      <img src="img/largo_1.jpg" alt="Mullet azul">
+    </div>
+    <div>
+      <span class="num">04 — Cortes largos</span>
+      <h2>No solo degradados</h2>
+      <p>También cortamos pelo largo, para hombre y para mujer: foxy, mod cut, bob, mullet y shag. Si tienes una referencia, tráela.</p>
+      <div class="etiquetas"><span>Foxy</span><span>Mod cut</span><span>Bob</span><span>Mullet</span><span>Shag</span></div>
+      <a class="btn" href="https://wa.me/34605229549" target="_blank" rel="noopener">Pedir cita · 30 €</a>
+    </div>
+  </div>
+</section>
+
+<div class="gris">
+<section id="opiniones">
+  <span class="num">05 — Opiniones</span>
+  <h2 class="titulo">486 reseñas · 5,0</h2>
+  <div class="opiniones">
+    <div class="op"><div class="est">★★★★★</div><p>“Venimos desde Vilafranca porque son unos cracks. Cortan genial y muy buena gente. Cortes súper actuales.”</p><cite>— Amanda, clienta verificada en Booksy</cite></div>
+    <div class="op"><div class="est">★★★★★</div><p>“El equipo es una familia, verdaderos profesionales que empatizan y saben cómo mejorar la fisionomía del cliente; un 1000.”</p><cite>— Joel, cliente verificado en Booksy</cite></div>
+    <div class="op"><div class="est">★★★★★</div><p>“Corte 10/10, peluquero 10/10 (Toni), y servicio excelente, ¡hasta tienen exhibición de motos!”</p><cite>— Wilfredo, cliente verificado en Booksy</cite></div>
+  </div>
+</section>
+</div>
+
+<section id="ubicacion">
+  <span class="num">06 — Ubicación</span>
+  <h2 class="titulo">Dónde y cuándo</h2>
+  <div class="info">
+    <div>
+      <table class="horario">
+        <tr><td>Lunes</td><td>15:30 – 20:00</td></tr>
+        <tr><td>Martes</td><td>09:00 – 13:30 · 15:00 – 19:00</td></tr>
+        <tr><td>Miércoles</td><td>09:00 – 13:30 · 15:00 – 19:00</td></tr>
+        <tr><td>Jueves</td><td>09:00 – 13:30 · 15:00 – 19:00</td></tr>
+        <tr><td>Viernes</td><td>09:00 – 13:30 · 15:00 – 19:00</td></tr>
+        <tr><td>Sábado</td><td>09:00 – 13:00</td></tr>
+        <tr class="cerrado"><td>Domingo</td><td>Cerrado</td></tr>
+      </table>
+      <p class="dir"><b>Carrer del Correu, 1</b> · 08800 Vilanova i la Geltrú</p>
+      <p class="dir">Tel / WhatsApp: <b>605 22 95 49</b></p>
+      <p class="urgente">¿Te urge? Tenemos corte urgente fuera de horario (25 €).</p>
+    </div>
+    <div class="mapa"><img src="img/map.png" alt="Mapa de BLB Studio en Vilanova i la Geltrú"></div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Tu cambio<br>empieza aquí</h2>
+  <p>Escríbenos por WhatsApp o reserva en Booksy y elige barbero y hora.</p>
+  <div class="botones">
+    <a class="btn" href="https://wa.me/34605229549" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+    <a class="btn btn-linea" href="https://booksy.com/es-es/162056_blb-studio_barberia_49058_vilanova-i-la-geltru" target="_blank" rel="noopener">Reservar en Booksy</a>
+  </div>
+</div>
+
+<footer>© 2026 BLB Studio · Carrer del Correu, 1, Vilanova i la Geltrú</footer>
+
+<a class="wa-flotante" href="https://wa.me/34605229549" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2zm5.8 14.09c-.24.68-1.43 1.3-1.97 1.35-.5.05-.98.24-3.3-.69-2.79-1.1-4.56-3.95-4.7-4.13-.13-.18-1.12-1.49-1.12-2.85s.71-2.02.97-2.3c.25-.27.55-.34.73-.34h.53c.17 0 .4-.06.62.48.24.56.8 1.94.87 2.08.07.14.12.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.13-.28.28-.12.55.16.27.71 1.17 1.52 1.89 1.05.93 1.93 1.22 2.2 1.36.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.6-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.33z"/></svg>
+</a>
+
+</body>
+</html>
